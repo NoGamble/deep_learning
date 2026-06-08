@@ -1,28 +1,16 @@
 import os
 import pandas as pd
 
-# the file path
-os.makedirs(os.path.join(".", 'data'), exist_ok = True)
-data_file_path = os.path.join(".", "data", "house_tiny.csv")
+os.makedirs(os.path.join("..", "data"), exist_ok=True)
+datafile = os.path.join("..", "data", "house_tiny.csv")
 
-with open(data_file_path, 'w') as f:
-    # column names
-    f.write('NumRooms,Alley,Price\n')
-    # writting into data:
-    f.write('NA,Pave,127500\n')
-    f.write('2,NA,106000\n')
-    f.write('4,NA,178100\n')
-    f.write('NA,NA,140000\n')
-
-# Handling the missing values
-data = pd.read_csv(data_file_path)
-print(data)
-
-# iloc is pandas integer location
-inputs, outputs = data.iloc[:, 0:2], data.iloc[:, 2]
-inputs['NumRooms'] = inputs['NumRooms'].fillna(inputs['NumRooms'].mean())
-# One-hot coding
-inputs = pd.get_dummies(inputs, dummy_na=True)
-print(inputs)
-
-
+with open(datafile, "w") as f:
+    f.write("NumRooms,Alley,Street,YearBuilt,Price\n")
+    f.write("NA,Pave,Grvl,1990,127500\n")
+    f.write("2,NA,Pave,2005,106000\n")
+    f.write("4,NA,Pave,NA,178100\n")
+    f.write("NA,NA,Grvl,1980,140000\n")
+    f.write("3,Pave,Pave,2010,190000\n")
+    f.write("NA,Grvl,NA,1995,135000\n")
+    f.write("5,NA,Pave,2020,300000\n")
+    f.write("2,Pave,Grvl,NA,98000\n")
