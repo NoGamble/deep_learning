@@ -6,7 +6,7 @@ import pandas as pd
 import numpy as np
 import random
 
-def systhetic_data(w, b, num_examples): 
+def synthetic_data(w, b, num_examples): 
     X = torch.normal(0, 1, (num_examples, len(w))) 
     y = torch.matmul(X, w) + b
     y += torch.normal(0, 0.01, y.shape)
@@ -14,7 +14,7 @@ def systhetic_data(w, b, num_examples):
 
 true_w = torch.tensor([2, -3.4])
 true_b = 4.2
-features, lables = systhetic_data(true_w, true_b, 1000)
+features, lables = synthetic_data(true_w, true_b, 1000)
 
 print('features:', features[0], '\nlable:', lables[0])
 
