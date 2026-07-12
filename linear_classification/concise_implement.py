@@ -34,6 +34,8 @@ net.apply(init_weights)
 
 loss = nn.CrossEntropyLoss()
 
+trainer = torch.optim.SGD(net.parameters(), lr=0.1)
+
 def train_epoch_ch3(net, train_iter, loss, updater):
      if isinstance(net, torch.nn.Module):
           net.train()
