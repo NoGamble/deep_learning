@@ -211,3 +211,6 @@ __marimo__/
 
 # data
 data/
+
+# Vscode
+.vscode
